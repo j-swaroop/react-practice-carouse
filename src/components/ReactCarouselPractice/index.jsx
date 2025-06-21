@@ -33,6 +33,9 @@ function ReactCarouselPractice() {
     { name: "Nature-15", src: "src/assets/Images/Nature-15.jpg" },
   ];
 
+  function getImage(name) {
+    return new URL(`../../assets/images/${name}.jpg`, import.meta.url).href;
+  }
   const onClickCarouselItem = (index) => {
     setAnimatedClass(true);
     setCurrentIndex(index);
@@ -45,6 +48,11 @@ function ReactCarouselPractice() {
         className={`background-image Nature-${currentIndex} ${
           addAnimatedClass ? "animation-class" : ""
         }`}
+        style={
+          getImage(`Nature-${currentIndex}`)
+            ? { backgroundImage: `url(${getImage(`Nature-${currentIndex}`)})` }
+            : {}
+        }
       >
         <div className="text-content-wrapper">
           <div className="text-title">React Carousel Practice</div>
@@ -65,7 +73,7 @@ function ReactCarouselPractice() {
             key={item.name}
             onClick={() => onClickCarouselItem(index + 1)}
           >
-            <img src={item.src} alt="Nature" />;
+            <img src={getImage(item.name)} alt="Nature" />;
             <div className="carousel-item-text">{item.name}</div>
           </div>
         ))}
