@@ -1,5 +1,20 @@
 import React, { useState } from "react";
 import "./index.css";
+import nature1 from "../../assets/images/Nature-1.jpg";
+import nature2 from "../../assets/images/Nature-2.jpg";
+import nature3 from "../../assets/images/Nature-3.jpg";
+import nature4 from "../../assets/images/Nature-4.jpg";
+import nature5 from "../../assets/images/Nature-5.jpg";
+import nature6 from "../../assets/images/Nature-6.jpg";
+import nature7 from "../../assets/images/Nature-7.jpg";
+import nature8 from "../../assets/images/Nature-8.jpg";
+import nature9 from "../../assets/images/Nature-9.jpg";
+import nature10 from "../../assets/images/Nature-10.jpg";
+import nature11 from "../../assets/images/Nature-11.jpg";
+import nature12 from "../../assets/images/Nature-12.jpg";
+import nature13 from "../../assets/images/Nature-13.jpg";
+import nature14 from "../../assets/images/Nature-14.jpg";
+import nature15 from "../../assets/images/Nature-15.jpg";
 
 function ReactCarouselPractice() {
   const [currentIndex, setCurrentIndex] = useState(15);
@@ -16,21 +31,21 @@ function ReactCarouselPractice() {
   };
 
   const images = [
-    { name: "Nature-1", src: "src/assets/Images/Nature-1.jpg" },
-    { name: "Nature-2", src: "src/assets/Images/Nature-2.jpg" },
-    { name: "Nature-3", src: "src/assets/Images/Nature-3.jpg" },
-    { name: "Nature-4", src: "src/assets/Images/Nature-4.jpg" },
-    { name: "Nature-5", src: "src/assets/Images/Nature-5.jpg" },
-    { name: "Nature-6", src: "src/assets/Images/Nature-6.jpg" },
-    { name: "Nature-7", src: "src/assets/Images/Nature-7.jpg" },
-    { name: "Nature-8", src: "src/assets/Images/Nature-8.jpg" },
-    { name: "Nature-9", src: "src/assets/Images/Nature-9.jpg" },
-    { name: "Nature-10", src: "src/assets/Images/Nature-10.jpg" },
-    { name: "Nature-11", src: "src/assets/Images/Nature-11.jpg" },
-    { name: "Nature-12", src: "src/assets/Images/Nature-12.jpg" },
-    { name: "Nature-13", src: "src/assets/Images/Nature-13.jpg" },
-    { name: "Nature-14", src: "src/assets/Images/Nature-14.jpg" },
-    { name: "Nature-15", src: "src/assets/Images/Nature-15.jpg" },
+    { name: "Nature-1", src: nature1 },
+    { name: "Nature-2", src: nature2 },
+    { name: "Nature-3", src: nature3 },
+    { name: "Nature-4", src: nature4 },
+    { name: "Nature-5", src: nature5 },
+    { name: "Nature-6", src: nature6 },
+    { name: "Nature-7", src: nature7 },
+    { name: "Nature-8", src: nature8 },
+    { name: "Nature-9", src: nature9 },
+    { name: "Nature-10", src: nature10 },
+    { name: "Nature-11", src: nature11 },
+    { name: "Nature-12", src: nature12 },
+    { name: "Nature-13", src: nature13 },
+    { name: "Nature-14", src: nature14 },
+    { name: "Nature-15", src: nature15 },
   ];
 
   function getImage(name) {
@@ -41,6 +56,8 @@ function ReactCarouselPractice() {
     setCurrentIndex(index);
   };
 
+  console.log("Current Index:", images);
+
   return (
     <div className="carousel-wrapper">
       <div
@@ -48,9 +65,7 @@ function ReactCarouselPractice() {
         className={`background-image Nature-${currentIndex} ${
           addAnimatedClass ? "animation-class" : ""
         }`}
-        style={
-          { backgroundImage: `url(/images/Nature-${currentIndex}.jpg)})` }
-        }
+        style={{ backgroundImage: `url(nature${currentIndex}.jpg)} )` }}
       >
         <div className="text-content-wrapper">
           <div className="text-title">React Carousel Practice</div>
@@ -71,7 +86,7 @@ function ReactCarouselPractice() {
             key={item.name}
             onClick={() => onClickCarouselItem(index + 1)}
           >
-            <img src={`/images/${item.name}.jpg`} alt="Nature" />;
+            <img src={item.src} alt="Nature" />
             <div className="carousel-item-text">{item.name}</div>
           </div>
         ))}
